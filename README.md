@@ -8,7 +8,7 @@ Start the Weasyprint Docker container in a terminal and expose the service on a 
 
     $ docker run -p 5000:5000 dimw/weasyprint
 
-For PDF generation run a following _curl_ command, pass HTML a s part of JSON request (_html_ attibute), and define a desired output file (_wasyprint-test.pdf_):
+For PDF generation run a following _curl_ command, pass HTML a s part of JSON request (_html_ attribute), and define a desired output file (_wasyprint-test.pdf_):
     
     $ curl \
         -X POST http://localhost:5000/render \
