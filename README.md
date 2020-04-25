@@ -71,6 +71,12 @@ by running the following command:
 
 The debug mode enables live reload of the endpoints defined in _./app/server.py_.  
 
+## Run Rests
+
+The following command can be used to execute the tests:
+
+    $ docker-compose run weasyprint /app/run-tests.sh
+
 ## Licence
 
 The content of this repository is under the MIT licence.

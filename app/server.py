@@ -11,18 +11,21 @@ def index():
 
 @app.route('/render', methods=['POST'])
 def render():
-    html = request.json.get('html')
-    outputFormat = request.json.get('outputFormat') or 'pdf'
+    if request.json is None:
+        return Response('JSON payload expected', 400)
 
-    if html == None:
+    html = request.json.get('html')
+    output_format = request.json.get('outputFormat') or 'pdf'
+
+    if html is None:
         return Response('HTML missing', 400)
 
     document = HTML(string=html)
 
-    if outputFormat == 'png':
+    if output_format == 'png':
         mimetype = 'image/png'
         response_content = document.write_png()
-    elif outputFormat == 'pdf':
+    elif output_format == 'pdf':
         mimetype = 'application/pdf'
         response_content = document.write_pdf()
     else:
